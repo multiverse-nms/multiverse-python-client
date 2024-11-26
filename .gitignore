@@ -1,0 +1,28 @@
+# IntelliJ project files
+.idea
+*.iml
+.settings/
+.vscode/
+*.factorypath
+*.cypher
+
+# build files
+build
+target
+.vertx
+**/generated/
+
+.project
+*/.externalToolBuilders
+*/.classpath
+*/.settings
+
+*.pem
+*.log
+/bin/
+
+# Exclude Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
