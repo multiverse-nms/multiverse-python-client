@@ -1,5 +1,6 @@
 from multiverse import Multiverse, Path, OXC, search_paths
 import networkx as nx
+import json
 
 # Before running:
 # On Linux:
@@ -31,11 +32,17 @@ print("Network topology:")
 for u, v, keys in G.edges(keys=True):
     print(f"  Edge from {u} to {v} with key {keys}")
 
-
 curr_paths = qnet.get_paths()
 print("Existing paths:")
 for path in curr_paths:
     path.print()
+
+print("Download network content in JSON:")
+json_content = qnet.download_json()
+if json_content:
+    print(json.dumps(json_content))
+
+exit(0)
 
 # delete the network
 if not mvs.delete_network(qnet):

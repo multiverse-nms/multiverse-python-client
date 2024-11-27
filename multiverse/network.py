@@ -66,6 +66,16 @@ class Network:
     def id(self):
         return self._network_id
 
+    def download_json(self):
+        """Generate a JSON from the network content similar to the JSON used in upload."""
+        url = f"{self._multiverse._BASE_URL}/subnet/{self._network_id}/download"
+        response = self._multiverse.session.get(url)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            print(f"Failed to download network content: {response.text}")
+            return None
+
     def get_topology(self):
         """Fetch the topology for the network."""
         url = f"{self._multiverse._BASE_URL}/subnet/{self._network_id}/topology"

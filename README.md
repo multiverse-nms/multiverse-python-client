@@ -4,7 +4,7 @@ The Multiverse Python Client Library provides an interface to easily interact wi
 
 ## Features
 
-- **Network Management**: Create, select, and delete networks using JSON-defined topologies.
+- **Network Management**: Create, select, download, and delete networks using JSON-defined topologies.
 - **Topology Retrieval**: Obtain the network topology as a NetworkX `MultiDiGraph`.
 - **Path Management**: Get existing optical paths with their cross-connects, manually create paths, and delete paths.
 - **Path Search**: Compute all possible paths between source and destination nodes, with optional ports, and create paths from computed results.
@@ -51,10 +51,11 @@ if not mvs.token:
 
 ### Network Management
 
-#### Create or Select a Network
+#### Create a network defined in JSON format
 
 ```python
-# Create a new network and upload topology
+# Create a new network and upload topology and paths from JSON
+# Note: Returns the network instance if the name already exists
 qnet = mvs.create_network(name="qnet-example", json_file_path="example_topology.json")
 if not qnet:
     exit(1)
@@ -73,6 +74,16 @@ if not qnet:
 ```python
 if not mvs.delete_network(qnet):
     exit(1)
+```
+
+#### Download network in JSON format
+
+```python
+# Returns topology and paths in JSON (same format as in create_network)
+json_content = qnet.download_json()
+if not json_content:
+    exit(1)
+print(json.dumps(json_content))
 ```
 
 ### Topology Retrieval

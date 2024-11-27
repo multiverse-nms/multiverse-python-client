@@ -1,57 +1,155 @@
 {
     "nodes": [
-        { 
-            "name": "NIST", 
+        {
+            "name": "NIST",
             "label": "NIST_LAB",
-            "inPorts": ["1", "2", "3", "4", "5", "6", "7", "8"], 
-            "outPorts": ["9", "10", "11", "12", "13", "14", "15", "16"], 
-            "position": { "x": 300, "y": 50 },
+            "inPorts": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8"
+            ],
+            "outPorts": [
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16"
+            ],
+            "position": {
+                "x": 300,
+                "y": 50
+            },
             "ipAddress": "172.0.0.1"
         },
-        { 
+        {
             "name": "UMD",
             "label": "UMD_HUB",
-            "inPorts": ["1", "2", "3", "4", "5", "6", "7", "8"],
-            "outPorts": ["9", "10", "11", "12", "13", "14", "15", "16"], 
-            "position": { "x": 250, "y": 350 },
+            "inPorts": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8"
+            ],
+            "outPorts": [
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16"
+            ],
+            "position": {
+                "x": 250,
+                "y": 350
+            },
             "ipAddress": "172.0.0.1"
         }
     ],
     "capabilities": [
         {
-            "name": "SOURCE", 
+            "name": "SOURCE",
             "label": "ALICE_SOURCE",
             "type": "SOURCE",
             "inPorts": [],
-            "outPorts": ["1", "2"], 
-            "position": { "x": 150, "y": 250 },
+            "outPorts": [
+                "1",
+                "2"
+            ],
+            "position": {
+                "x": 150,
+                "y": 250
+            },
             "ipAddress": "172.0.0.1"
         },
-        { 
-            "name": "DETECTOR", 
+        {
+            "name": "DETECTOR",
             "label": "BOB_DETECTOR",
             "type": "DETECTOR",
-            "inPorts": ["1", "2"],
+            "inPorts": [
+                "1",
+                "2"
+            ],
             "outPorts": [],
-            "position": { "x": 150, "y": 150 },
+            "position": {
+                "x": 150,
+                "y": 150
+            },
             "ipAddress": "172.0.0.1"
         }
     ],
     "links": [
-        { "label": "SOURCE.1_NIST.1", "outPort": "SOURCE.1", "inPort": "NIST.1" },
-        { "label": "SOURCE.2_NIST.2", "outPort": "SOURCE.2", "inPort": "NIST.2" },
-        { "label": "NIST.9_UMD.1", "outPort": "NIST.9", "inPort": "UMD.1" },
-        { "label": "UMD.9_NIST.3", "outPort": "UMD.9", "inPort": "NIST.3" },
-        { "label": "NIST.10_UMD.2", "outPort": "NIST.10", "inPort": "UMD.2" },
-        { "label": "UMD.10_NIST.4", "outPort": "UMD.10", "inPort": "NIST.4" },
-        { "label": "UMD.11_DETECTOR.1", "outPort": "UMD.11", "inPort": "DETECTOR.1" },
-        { "label": "UMD.12_DETECTOR.2", "outPort": "UMD.12", "inPort": "DETECTOR.2" }
+        {
+            "label": "SOURCE.1_NIST.1",
+            "outPort": "SOURCE.1",
+            "inPort": "NIST.1"
+        },
+        {
+            "label": "SOURCE.2_NIST.2",
+            "outPort": "SOURCE.2",
+            "inPort": "NIST.2"
+        },
+        {
+            "label": "NIST.9_UMD.1",
+            "outPort": "NIST.9",
+            "inPort": "UMD.1"
+        },
+        {
+            "label": "UMD.9_NIST.3",
+            "outPort": "UMD.9",
+            "inPort": "NIST.3"
+        },
+        {
+            "label": "NIST.10_UMD.2",
+            "outPort": "NIST.10",
+            "inPort": "UMD.2"
+        },
+        {
+            "label": "UMD.10_NIST.4",
+            "outPort": "UMD.10",
+            "inPort": "NIST.4"
+        },
+        {
+            "label": "UMD.11_DETECTOR.1",
+            "outPort": "UMD.11",
+            "inPort": "DETECTOR.1"
+        },
+        {
+            "label": "UMD.12_DETECTOR.2",
+            "outPort": "UMD.12",
+            "inPort": "DETECTOR.2"
+        }
     ],
     "paths": [
         {
-            "name": "TRAIL-1", "label": "SOURCE.1_to_DETECTOR.1", "oxcs": [
-                { "label": "NIST_1x9", "switch": "NIST", "inPort": "1", "outPort": "9" },
-                { "label": "UMD_1x11", "switch": "UMD", "inPort": "1", "outPort": "11" }
+            "name": "TRAIL-1",
+            "label": "SOURCE.1_to_DETECTOR.1",
+            "oxcs": [
+                {
+                    "label": "NIST_1x9",
+                    "switch": "NIST",
+                    "inPort": "1",
+                    "outPort": "9"
+                },
+                {
+                    "label": "UMD_1x11",
+                    "switch": "UMD",
+                    "inPort": "1",
+                    "outPort": "11"
+                }
             ]
         }
     ]
